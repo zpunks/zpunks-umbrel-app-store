@@ -1,1 +1,17 @@
+manifestVersion: 1
+id: blockstream-satellite
+category: bitcoin
+name: Blockstream Satellite
+version: "1.0.0"
+tagline: Access Bitcoin data via satellite
+description: >-
+  Blockstream Satellite enables Bitcoin blockchain data synchronization via satellite, providing access to the blockchain without requiring an internet connection.
+developer: Blockstream
+website: https://blockstream.com/satellite/
+icon: assets/satellite_emblem_on_dark_rgb.png
+dependencies: Bitcoin core node or Bitcoin knots node
+ports:8080
+path: /
+defaultUsername: blocksat
+defaultPassword: password
 
