@@ -1,6 +1,6 @@
 manifestVersion: 1
-id: zpunks-hello-werld
-name: Hello Werld
+id: zpunks-hello-world
+name: Hello World
 tagline: zpunks-umbrel-app-store's tagline
 icon: https://svgur.com/i/mvA.svg
 category: Development
