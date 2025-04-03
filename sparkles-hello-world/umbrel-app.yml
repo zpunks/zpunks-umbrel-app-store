@@ -1,7 +1,7 @@
 manifestVersion: 1
-id: sparkles-hello-world
-name: Hello World
-tagline: Replace this tagline with your app's tagline
+id: zpunks-hello-werld
+name: Hello Werld
+tagline: zpunks-umbrel-app-store's tagline
 icon: https://svgur.com/i/mvA.svg
 category: Development
 version: "1.0.0"
