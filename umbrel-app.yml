@@ -1,5 +1,5 @@
 manifestVersion: 1
-id: blockstream-satellite
+id: zpunks-blockstream-satellite
 category: bitcoin
 name: Blockstream Satellite
 version: "1.0.0"
