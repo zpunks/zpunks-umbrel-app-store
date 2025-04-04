@@ -10,7 +10,7 @@ developer: Blockstream
 website: https://blockstream.com/satellite/
 icon: assets/satellite_emblem_on_dark_rgb.png
 dependencies:
-  - bitcoin Core or Knots Node
+  - bitcoin
 ports:
   - 8080
 path: /
