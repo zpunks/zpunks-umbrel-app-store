@@ -5,17 +5,24 @@ services:
     environment:
       # The format here is: <app-id>_<docker-service-name>_1
       APP_HOST: zpunks-blockstream-satellite_server_1
-      APP_PORT: 8080  # Replace this with the actual port used by Blockstream Satellite
-    
+      APP_PORT: 8080 
+
   server:
-    image: zpunks/blockstream-satellite:latest  # Replace with the correct Docker image for Blockstream Satellite
+    image: blockstream/satellite:latest
     user: "1000:1000"
     init: true
     volumes:
-      - data:/data  # Add volumes if Blockstream Satellite requires persistent storage
+      - blocksat-cfg:/root/.blocksat/
+    devices:
+      - /dev/dvb/adapter0:/dev/dvb/adapter0
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
     environment:
-      - SATELLITE_API_KEY=your_api_key  # Replace with any required environment variables
-      - OTHER_ENV_VAR=value  # Add other variables if needed
+      - SATELLITE_API_KEY=your_api_key
+      - OTHER_ENV_VAR=value
 
 volumes:
-  data:
+  blocksat-cfg:
+
