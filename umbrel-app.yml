@@ -9,9 +9,10 @@ description: >-
 developer: Blockstream
 website: https://blockstream.com/satellite/
 icon: assets/satellite_emblem_on_dark_rgb.png
-dependencies: Bitcoin core node or Bitcoin knots node
-ports:8080
+dependencies:
+  - bitcoin Core or Knots Node
+ports:
+  - 8080
 path: /
 defaultUsername: blocksat
 defaultPassword: password
-
