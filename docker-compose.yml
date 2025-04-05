@@ -3,10 +3,8 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: server  # Updated to match the service name
-      APP_PORT: 8080    # Ensure this matches the GUI's port
-    depends_on:
-      - server          # Ensure the proxy waits for the server to start
+      APP_HOST: blockstream-satellite_server_1
+      APP_PORT: 8080  # Ensure this matches the port used by Blockstream Satellite
 
   server:
     image: blockstream/satellite:latest
@@ -21,7 +19,7 @@ services:
       - NET_ADMIN
       - SYS_ADMIN
     environment:
-      - SATELLITE_API_KEY=${SATELLITE_API_KEY}  # Use .env for the API key
+      - SATELLITE_API_KEY=your_api_key  # Replace with your API key
       - BLOCKSAT_DVB_ADAPTER=/dev/dvb/adapter0
 
 volumes:
