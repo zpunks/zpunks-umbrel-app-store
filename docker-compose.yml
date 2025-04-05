@@ -3,7 +3,6 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      # The format here is: <app-id>_<docker-service-name>_1
       APP_HOST: blockstream-satellite_server_1
       APP_PORT: 8080  # Ensure this matches the port used by Blockstream Satellite
 
@@ -14,15 +13,14 @@ services:
     volumes:
       - blocksat-cfg:/root/.blocksat/
     devices:
-      - /dev/dvb/adapter0:/dev/dvb/adapter0  # This is essential for the Base Station
+      - /dev/dvb/adapter0:/dev/dvb/adapter0
     network_mode: host
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
     environment:
-      - SATELLITE_API_KEY=your_api_key  # Replace with your API key if required
-      # Add any additional environment variables required by the Blockstream Satellite app
-      - BLOCKSAT_DVB_ADAPTER=/dev/dvb/adapter0 # Specify the DVB adapter
+      - SATELLITE_API_KEY=your_api_key  # Replace with your API key
+      - BLOCKSAT_DVB_ADAPTER=/dev/dvb/adapter0
 
 volumes:
   blocksat-cfg:
