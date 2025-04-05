@@ -1,17 +1,61 @@
-## Umbrel Community App Store Template
+## Setting Up the Blockstream Satellite API Key
 
-This repository is a template to create an Umbrel Community App Store. These additional app stores allow developers to distribute applications without submitting to the [Official Umbrel App Store](https://github.com/getumbrel/umbrel-apps).
+To ensure your Blockstream Satellite service works correctly, you need to set the `SATELLITE_API_KEY` environment variable with your API key. Follow these steps:
 
-## How to use:
+1. **Access Umbrel OS Command Line via SSH**:
+   - Open a terminal on your local machine.
+   - Connect to your Umbrel node using SSH:
+     ```sh
+     ssh umbrel@umbrel.local
+     ```
+   - You may need to replace `umbrel.local` with the actual IP address or hostname of your Umbrel node.
 
-1. Start by clicking the "Use this template" button located above.
-2. Assign an ID and name to your app store within the `umbrel-app-store.yml` file. This file specifies two important attributes:
-    - `id` - Acts as a unique prefix for every app within your Community App Store. You must start your application's ID with your app store's ID. For instance, in this template, the app store ID is `zpunks-umbrel-app-store`, and there's an app named `hello world`. Consequently, the app's ID should be: `zpunks-hello-world`.
-    - `zpunks-umbrel-app-store` - This is the name of the Community App Store displayed in the umbrelOS UI.
-3. Change the name of the `zpunks-umbrel-app-store-hello-world` folder to match your app's ID. The app ID is for you to decide. For example, if your app store ID is `zpunks-umbrel-app-store`, and your app is named My Video Downloader, you could set its app ID to `zpunks-umbrel-app-store-my-video-downloader`, and rename the folder accordingly.
-4. Next, enter your app's listing details in the `zpunks-umbrel-app-store-my-video-downloader/umbrel-app.yml`. These are displayed in the umbrelOS UI.
-5. Include the necessary Docker services in `zpunks-umbrel-app-store-my-video-downloader/docker-compose.yml`.
-6. That's it! Your Community App Store, featuring your unique app, is now set up and ready to go. To use your Community App Store, you can add its GitHub url the umbrelOS user interface as shown in the following demo:
+2. **Set the Environment Variable**:
+   - Once connected, set the `SATELLITE_API_KEY` environment variable:
+     ```sh
+     export SATELLITE_API_KEY=your_actual_api_key
+     ```
 
+3. **Run Docker Compose**:
+   - Navigate to the directory containing your `docker-compose.yml` file:
+     ```sh
+     cd /path/to/your/docker-compose-file
+     ```
+   - Start the services with Docker Compose:
+     ```sh
+     docker-compose up -d
+     ```
 
-https://user-images.githubusercontent.com/10330103/197889452-e5cd7e96-3233-4a09-b475-94b754adc7a3.mp4
+Replace `your_actual_api_key` with your actual Blockstream Satellite API key.
+
+## Example Docker Compose File
+
+Ensure your `docker-compose.yml` file includes the following configuration:
+
+```yaml
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: blockstream-satellite_server_1
+      APP_PORT: 8080  # Ensure this matches the port used by Blockstream Satellite
+
+  server:
+    image: blockstream/satellite:latest
+    user: "1000:1000"
+    init: true
+    volumes:
+      - blocksat-cfg:/root/.blocksat/
+    devices:
+      - /dev/dvb/adapter0:/dev/dvb/adapter0
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    environment:
+      - SATELLITE_API_KEY=your_api_key  # Replace with your API key
+      - BLOCKSAT_DVB_ADAPTER=/dev/dvb/adapter0
+
+volumes:
+  blocksat-cfg:
