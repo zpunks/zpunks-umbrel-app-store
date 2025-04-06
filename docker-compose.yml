@@ -24,24 +24,3 @@ services:
 
 volumes:
   blocksat-cfg:
-
-version: "3.7"
-
-services:
-  app_proxy:
-    image: your-app-proxy-image:latest  # Replace with the actual image name
-    environment:
-      APP_HOST: server  # Updated to match the service name
-      APP_PORT: 8080
-
-  server:
-    image: blockstream/satellite:latest
-    user: "1000:1000"
-    init: true
-    volumes:
-      - blocksat-cfg:/root/.blocksat/  # Mount the Blockstream Satellite config
-    environment:
-      - SATELLITE_API_KEY=your_api_key  # Replace with your API key (if required)
-
-volumes:
-  blocksat-cfg:
