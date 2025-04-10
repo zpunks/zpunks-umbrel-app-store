@@ -1,17 +1,17 @@
-version: "3.7"
-
 services:
   app_proxy:
+    image: your-app-proxy-image:latest  # Replace with the actual image name
     environment:
-      APP_HOST: blockstream-satellite_server_1
-      APP_PORT: 8080  # Ensure this matches the port used by Blockstream Satellite
+      APP_HOST: server  # Updated to match the service name
+      APP_PORT: 8080
 
   server:
     image: blockstream/satellite:latest
     user: "1000:1000"
     init: true
     volumes:
-      - blocksat-cfg:/root/.blocksat/
+      - ~/.bitcoin/:/root/.bitcoin/  # Mount the Bitcoin data directory
+      - blocksat-cfg:/root/.blocksat/  # Mount the Blockstream Satellite config
     devices:
       - /dev/dvb/adapter0:/dev/dvb/adapter0
     network_mode: host
@@ -24,3 +24,4 @@ services:
 
 volumes:
   blocksat-cfg:
+
