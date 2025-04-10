@@ -2,7 +2,7 @@
   "id": "blockstream-satellite",
   "name": "Blockstream Satellite",
   "description": "A satellite service app for Umbrel.",
-  "version": "1.0.0",
+  "version": "2.5.0",
   "repository": "https://github.com/zpunks/zpunks-umbrel-app-store",
   "license": "MIT",
   "type": "app",
