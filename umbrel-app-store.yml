@@ -1,3 +1,2 @@
-id: mystore
-name: My App Store
-tagline: Community apps including Pyramid Nostr relay
+id: "zpunks"
+name: "zpunks-umbrel"

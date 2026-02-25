@@ -2,12 +2,12 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: mystore-pyramid_server_1
+      APP_HOST: zpunks-pyramid_server_1
       APP_PORT: 3334
       PROXY_AUTH_ADD: "false"
   server:
     image: ghcr.io/fiatjaf/pyramid:v1.0.9
-    container_name: mystore-pyramid_server_1
+    container_name: zpunks-pyramid_server_1
     restart: on-failure
     ports:
       - "${APP_PYRAMID_PORT:-3334}:3334"
