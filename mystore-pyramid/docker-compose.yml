@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: mystore-pyramid_server_1
+      APP_PORT: 3334
+      PROXY_AUTH_ADD: "false"
+  server:
+    image: ghcr.io/fiatjaf/pyramid:v1.0.9
+    container_name: mystore-pyramid_server_1
+    restart: on-failure
+    ports:
+      - "${APP_PYRAMID_PORT:-3334}:3334"
+    environment:
+      PORT: "3334"
+      DOMAIN: "${DEVICE_DOMAIN_NAME:-umbrel.local}"
+    volumes:
+      - "${APP_DATA_DIR}/data:/app/data"
+    mem_limit: 512m
+    mem_reservation: 64m
