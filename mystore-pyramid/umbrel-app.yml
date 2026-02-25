@@ -1,0 +1,18 @@
+manifestVersion: 1
+id: mystore-pyramid
+category: social
+name: Pyramid
+tagline: Your personal Nostr community relay
+version: "1.0.9"
+port: 3334
+description: >-
+  Pyramid is a Nostr community relay. Connect any Nostr client via WebSocket
+  and host your own slice of the decentralised Nostr network.
+developer: fiatjaf
+website: https://github.com/fiatjaf/pyramid
+dependencies: []
+repo: https://github.com/fiatjaf/pyramid
+support: https://github.com/fiatjaf/pyramid/issues
+releaseNotes: Initial Umbrel release of Pyramid v1.0.9.
+submitter: zak
+submission: http://umbrel.local:8085/zak/pyramid-nostr-subrelay
