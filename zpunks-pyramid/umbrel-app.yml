@@ -3,6 +3,7 @@ id: zpunks-pyramid
 category: social
 name: Pyramid
 tagline: Your personal Nostr community relay
+icon: https://raw.githubusercontent.com/zpunks/zpunks-umbrel-app-store/master/zpunks-pyramid/icon.svg
 version: "1.0.9"
 port: 3334
 description: >-
