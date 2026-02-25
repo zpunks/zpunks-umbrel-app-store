@@ -16,4 +16,4 @@ repo: https://github.com/fiatjaf/pyramid
 support: https://github.com/fiatjaf/pyramid/issues
 releaseNotes: Initial Umbrel release of Pyramid v1.0.9.
 submitter: zak
-submission: http://umbrel.local:8085/zak/pyramid-nostr-subrelay
+submission: https://github.com/zpunks/zpunks-umbrel-app-store
