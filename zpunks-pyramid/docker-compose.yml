@@ -6,7 +6,7 @@ services:
       APP_PORT: 3334
       PROXY_AUTH_ADD: "false"
   server:
-    image: ghcr.io/fiatjaf/pyramid:v1.0.9
+    image: pyramid-local:latest
     container_name: zpunks-pyramid_server_1
     restart: on-failure
     ports:
